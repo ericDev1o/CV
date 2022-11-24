@@ -14,7 +14,6 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
-  wwwrootDir: 'CV/wwwroot'
 
 steps:
 - task: UseDotNet@2
@@ -22,10 +21,6 @@ steps:
   inputs:
     packageType: sdk
     version: $(dotnetSdkVersion)
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: $(wwwrootDir)
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
