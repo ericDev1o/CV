@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6NzLzH8POqYG7Z+urklO0Ddj22+jlkiE+DRv1dFbJjmG5erZXyD73qe1WaZRqYBs2/nM86WTiiZWBxaRLBVIOA==",
+  "dgSpecHash": "CrHM03brHZ3vlUnOrsshPMtUelpuyLJT2xNPzfDvjiy2OxDnw5i2O2hvbTyzvwsxdqC5QLFG1kKKI31skiJrFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ericf\\source\\repos\\CV\\CV.csproj",
+  "projectFilePath": "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\CV.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

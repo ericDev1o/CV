@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ericf\\source\\repos\\CV\\CV.csproj": {}
+    "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\CV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ericf\\source\\repos\\CV\\CV.csproj": {
+    "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\CV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ericf\\source\\repos\\CV\\CV.csproj",
+        "projectUniqueName": "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\CV.csproj",
         "projectName": "CV",
-        "projectPath": "C:\\Users\\ericf\\source\\repos\\CV\\CV.csproj",
+        "projectPath": "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\CV.csproj",
         "packagesPath": "C:\\Users\\ericf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ericf\\source\\repos\\CV\\obj\\",
+        "outputPath": "C:\\Users\\ericf\\source\\repos\\CVazureStaticWebApp\\CV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ericf\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
@@ -56,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
