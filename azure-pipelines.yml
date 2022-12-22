@@ -1,41 +1,66 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+# Restore, build, publish and deploy the single CV page
 
 trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-  demands:
-  - npm
+- 'main'
 
 variables:
   buildConfiguration: 'Release'
-  dotnetSdkVersion: '6.x'
 
-steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
-  inputs:
-    packageType: sdk
-    version: $(dotnetSdkVersion)
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs:
+  - job: 'Build'
+    displayName: 'Build job'
+    pool:
+      vmImage: ubuntu-latest
+      demands:
+      - npm
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
+    variables:
+      dotnetSdkVersion: '7.x'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+      inputs:
+        packageType: sdk
+        version: $(dotnetSdkVersion)
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Release'
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore project dependencies'
+      inputs:
+        command: 'restore'
+        projects: '**/*.csproj'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  condition: succeeded()
+    - template: templates/build.yml
+      parameters:
+        buildConfiguration: $(buildConfiguration)
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      condition: succeeded()
+
+- stage: 'Deploy'
+  displayName: 'Deploy the web application'
+  dependsOn: Build
+  jobs:
+  - job: 'Deploy'
+    displayName: 'Deploy job'
+    pool:
+      vmImage: ubuntu-latest
+    environment: dev
+    variables:
+    - group: Release
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+          - task: AzureWebApp@1
+            displayName: 'Azure App Service Deploy: website'
+            inputs:
+              azureSubscription: 'ResourceManager-CV'
+              appName: '$(WebAppName)'
+              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
