@@ -45,7 +45,7 @@ stages:
   displayName: 'Deploy the web application'
   dependsOn: Build
   jobs:
-  - job: 'Deploy'
+  - deployment: 'Deploy'
     displayName: 'Deploy job'
     pool:
       vmImage: ubuntu-latest
