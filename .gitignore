@@ -1,0 +1,21 @@
+# Compiled source #
+###################
+*.com
+*.cache
+*.exe
+*.class
+*.dll
+*.so
+*.targets
+*.props
+*.nuget.dgspec.*
+obj/*
+bin/*
+# configuration #
+#################
+*.editorconfig
+*.json
+*.csproj
+*.sln
+.vscode/*
+.github/workflows/*
