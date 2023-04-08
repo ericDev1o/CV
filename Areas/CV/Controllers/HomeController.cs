@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CV.Models;
 
 namespace CV.Controllers;
-
+[Area("CV")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
