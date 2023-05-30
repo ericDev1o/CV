@@ -22,7 +22,7 @@ stages:
 
     steps:
     - task: UseDotNet@2
-      displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+      displayName: 'Use .net SDK $(dotnetSdkVersion)'
       inputs:
         packageType: sdk
         version: $(dotnetSdkVersion)
