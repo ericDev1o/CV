@@ -13,7 +13,7 @@ stages:
   - job: 'Build'
     displayName: 'Build job'
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'ubuntu-latest'
       demands:
       - npm
 
@@ -42,7 +42,7 @@ stages:
   - deployment: 'Deploy'
     displayName: 'Deploy job'
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'ubuntu-latest'
     environment: dev
     variables:
     - group: Release
