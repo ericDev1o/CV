@@ -27,12 +27,6 @@ stages:
         packageType: sdk
         version: $(dotnetSdkVersion)
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Restore project dependencies'
-      inputs:
-        command: 'restore'
-        projects: '**/*.csproj'
-
     - template: templates/build.yml
       parameters:
         buildConfiguration: $(buildConfiguration)
