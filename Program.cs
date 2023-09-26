@@ -10,9 +10,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
-app.MapControllerRoute(
+app.MapAreaControllerRoute(
     name: "areaRoute",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    areaName: "CV",
+    pattern: "CV/{controller=Home}/{action=Index}/{id?}"
 );
 app.MapControllerRoute(
     name: "default",
