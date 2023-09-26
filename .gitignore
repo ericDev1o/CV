@@ -11,12 +11,14 @@
 *.nuget.dgspec.*
 obj/*
 bin/*
+*.csproj
 # configuration #
 #################
 *.editorconfig
 *.json
 *.sln
 .vscode/*
+Properties/*
 .github/workflows/*
 # currently under development #
 ###############################
