@@ -26,7 +26,7 @@ jobs:
         run: dotnet build ${{env.GITHUB_WORKSPACE}} --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish /home/runner/work/CV/CV/CV.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp  --no-build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'CVbackEndEric'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_23A496069CA64AC3A436750517E95582 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7319B279E95540C1A3F6CF9CBC2F71CB }}
           package: .
